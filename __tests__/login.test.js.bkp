@@ -1,0 +1,21 @@
+import LoginPage from '../pages/LoginPage'
+
+let loginPage
+
+describe('Iniciar sesion en la pagina', ()=> {
+    beforeAll(async() => {
+        loginPage = new LoginPage()
+    })
+
+    it('Debera ir a la pagina', async()=>{
+        await loginPage.visit()
+    })
+
+    it('Debera llenar los campos', async()=>{
+        await loginPage.login('ygalvan','qwerty123')
+    },20000)
+
+    it('Validar que este en el dashboard', async()=>{
+        await loginPage.validateLogin()
+    },20000)
+})
